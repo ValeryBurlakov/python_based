@@ -1,20 +1,21 @@
-from random import randint
-from sys import argv
+# функция которая заполняет файл случайными парами чисел.
+# первуое число int второе - float разделены вертикальной чертой
+# минимальное число - -1000 макси - +1000
+# кол-во строк и имя файла передаются как аргументы функции
 
+import random
+from pathlib import Path
 
-def guess_number(down: int = 0, up: int = 100, amount: int = 5) -> bool:
-    num = randint(down, up)
-    for _ in range(amount):
-        num_yourself = int(input("Введите число: "))
-        if num == num_yourself:
-            return True
-        elif num_yourself < num:
-            print(f"Число {num_yourself} меньше загаданного")
-        else:
-            print(f"Число {num_yourself} больше загаданного")
-    return False
+MIN_NUM = -1000
+MAX_NUM = 1000
+
+def fill_number(name: str | Path, rows: int):
+    with open("numbers.txt", 'a', encoding='utf-8') as numbers:
+        for _ in range(rows):
+            num_int = random.randint(MIN_NUM, MAX_NUM)
+            num_float = random.uniform(MIN_NUM, MAX_NUM)
+            numbers.write(f'{num_int} | {num_float}\n')
+
 
 if __name__ == '__main__':
-    name, *param = argv
-    # print(name, param)
-    print(guess_number(*(int(num) for num in param)))
+    fill_number("numbers.txt", 50)
