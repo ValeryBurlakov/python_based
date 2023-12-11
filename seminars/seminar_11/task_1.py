@@ -14,9 +14,9 @@ class myStr(str):
         instance = super().__new__(cls, value)
         instance.author = author
         instance.time = time.time()
-        print(f'Создал класс {cls}')
+        # print(f'Создал класс {cls}')
         return instance
 
-help(myStr)
+# help(myStr)
 my_text = myStr('Моя жизнь тяжела', 'Вася')
 print(my_text, my_text.author, my_text.time)
