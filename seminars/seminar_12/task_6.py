@@ -23,6 +23,7 @@ class Range:
 
 
 class Rectangle:
+
     width = Range()
     length = Range()
 
