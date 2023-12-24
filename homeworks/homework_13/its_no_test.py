@@ -33,6 +33,11 @@ class Rectangle:
         height = perimeter // 2 - width
         return Rectangle(width, height)
 
+    def __add__(self, other):
+        width = self.width + other.width
+        perimeter = self.perimeter() + other.perimeter()
+        height = perimeter // 2 - width
+        return Rectangle(width, height)
     def __sub__(self, other):
         if self.perimeter() < other.perimeter():
             self, other = other, self
@@ -57,11 +62,10 @@ class Rectangle:
         return f"Rectangle({self.width}, {self.height})"
 
 
-c1 = Rectangle(6, 3)
-c2 = Rectangle(3, 5)
+c1 = Rectangle(4, 3)
+c2 = Rectangle(5, 5)
 
-c1.length = 8
-c2.width = 9
-print(c1.length)
-print(c2.width)
-print(c1.__repr__())
+c3 = c2 + c1
+print(c3.height)
+print(c3.width)
+print(c3.__repr__())
