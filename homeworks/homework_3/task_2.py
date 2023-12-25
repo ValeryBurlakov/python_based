@@ -1,6 +1,7 @@
 import re
 from collections import Counter
 
+
 def count_most_common_words(text):
     # Преобразование в нижний регистр
     text = text.lower()
@@ -22,6 +23,7 @@ def count_most_common_words(text):
 
     # Возвращение первых 10 наиболее часто встречающихся слов
     return sorted_word_counts[:10]
+
 
 text = "Hello world. Hello Python. Hello again. it's"
 result = count_most_common_words(text)

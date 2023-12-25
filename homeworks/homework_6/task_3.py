@@ -39,6 +39,6 @@ def generate_boards():
         random.shuffle(coordinates)  # Shuffle the coordinates randomly
         board_list.append(coordinates)
     return board_list
-# generate_boards()
+generate_boards()
 # print(board_list)
-# print(generate_boards())
+print(generate_boards())
